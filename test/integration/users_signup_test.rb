@@ -13,5 +13,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
     assert_select 'div#error_explanation'
     assert_select 'div.alert'
+    #ToDo: formのactionが/signupであることをテストする。でもassert_selectの使い方が分からない。
+    assert_select 'form.action /signup'
   end
 end
