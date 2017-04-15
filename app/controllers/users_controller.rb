@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
   private
 
-    # ストロングパラメーター
+    # ストロングパラメーター(ホワイトリスト)
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
