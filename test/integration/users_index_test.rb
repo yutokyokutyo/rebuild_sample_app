@@ -34,6 +34,6 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   test "Don't show invalid users" do
     log_in_as(@admin)
     get users_path
-    assert_not_equal 'a[href=?]', user_path(@invalid_user), text: @invalid_user.name
+    assert_select 'a[href=?]', user_path(@invalid_user), count: 0
   end
 end
