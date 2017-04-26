@@ -35,5 +35,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     log_in_as(@admin)
     get users_path
     assert_select 'a[href=?]', user_path(@invalid_user), count: 0
+    get user_path(@invalid_user)
+    assert_redirected_to root_path
   end
 end
