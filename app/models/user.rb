@@ -70,6 +70,13 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # 施策feedの定義
+  # 完全な実装は次章の「ユーザーをフォローする」を参照
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
+
   private
 
     # メールアドレスをすべて小文字にする
