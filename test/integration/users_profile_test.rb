@@ -19,4 +19,13 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
       assert_match micropost.content, response.body
     end
   end
+
+  test "home display" do
+    log_in_as(@user)
+    get root_path
+    assert_template 'static_pages/home'
+    # 1. user1に対して複数人がフォローする
+    # 2. user1が複数人をフォローする
+    # 3. followingとfollowerdsの数が意図した数になっているかを確認
+  end
 end
