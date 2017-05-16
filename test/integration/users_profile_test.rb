@@ -24,8 +24,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get root_path
     assert_template 'static_pages/home'
-    # 1. user1に対して複数人がフォローする
-    # 2. user1が複数人をフォローする
-    # 3. followingとfollowerdsの数が意図した数になっているかを確認
+    assert_match @user.following.count.to_s, response.body
+    assert_match @user.followers.count.to_s, response.body
   end
 end
